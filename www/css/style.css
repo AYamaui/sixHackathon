@@ -15,6 +15,11 @@ ion-item .item-description{
 	margin-top: 10px;
 }
 
+.item.active, .item.activated, .item-complex.active .item-content, .item-complex.activated .item-content {
+border-color: #ccc;
+background-color: #FFFFFF;
+}
+
 .total-sum {
 	text-align: left;
 }
