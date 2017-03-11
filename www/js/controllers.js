@@ -4,7 +4,7 @@ angular.module('starter.controllers', [])
 .controller('MapCtrl', function($scope, $state, $cordovaGeolocation,$state) {
   var options = {timeout: 10000, enableHighAccuracy: true};
 
-    $cordovaGeolocation.getCurrentPosition(options).then(function(position){
+
 
       var latLng = new google.maps.LatLng(47.3741135, 8.5381864);
 
@@ -103,9 +103,6 @@ angular.module('starter.controllers', [])
 
 
 
-    }, function(error){
-      console.log("Could not get location");
-    });
 })
 
 .controller('DashCtrl', function($scope) {})
@@ -135,11 +132,44 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('ShopingListCtrl', function($scope) {
+.controller('ShopingListCtrl', function($scope,$cordovaBarcodeScanner) {
   $scope.list = [{id: 1, name: 'Fantasy Fabric Dress', imgUrl: 'http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=86316898', price: '$46'},
                 {id: 2, name: 'Floral Embroidery Silk Top Blouse', imgUrl: 'http://thumbs.ebaystatic.com/images/g/5l0AAOSwRgJXhQCx/s-l225.jpg', price: '$23'},
                 {id: 3, name: 'Ripped Trousers in Black', imgUrl: 'https://cdnd.lystit.com/photos/0ceb-2016/01/26/zara-black-ripped-trousers-product-1-609239874-normal.jpeg', price: '$23'},
                 {id: 4, name: 'Leather High Heel Ankle Black', imgUrl: 'https://cdnd.lystit.com/photos/8c44-2015/09/03/zara-black-leather-high-heel-ankle-boots-leather-high-heel-ankle-boots-product-6-288278930-normal.jpeg', price: '$23'}];
+
+  $scope.takePhoto = function(){
+
+    if(ionic.Platform.isIOS() || ionic.Platform.isAndroid()){
+
+      $cordovaBarcodeScanner
+       .scan()
+       .then(function(barcodeData) {
+         // Success! Barcode data is here
+         var indice =  Math.floor(Math.random() * ($scope.list.length - 0 + 1)) + 0;
+         var json = JSON.stringify($scope.list[indice]);
+         var copy = JSON.parse(json);
+         copy.id = $scope.list.length + 1;
+         copy.$$hashKey = undefined;
+         $scope.list.push(copy);
+
+       }, function(error) {
+
+         // An error occurred
+       });
+   }
+   else{
+     var indice =  Math.floor(Math.random() * ($scope.list.length - 0 + 1)) + 0;
+     var json = JSON.stringify($scope.list[indice]);
+
+     var copy = JSON.parse(json);
+     copy.id = $scope.list.length + 1;
+     copy.$$hashKey = undefined;
+     $scope.list.push(copy);
+   }
+
+
+  }
 })
 
 

@@ -33,6 +33,9 @@
         },
         "phonegap-nfc": {
             "PACKAGE_NAME": "com.ionicframework.sixhackathon759359"
+        },
+        "phonegap-plugin-barcodescanner": {
+            "PACKAGE_NAME": "com.ionicframework.sixhackathon759359"
         }
     },
     "dependent_plugins": {
