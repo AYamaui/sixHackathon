@@ -59,6 +59,11 @@ background-color: #FFFFFF;
 }
 
 .high-footer{
+  height:50px;
+  text-align:center;
+  margin:auto;
+}
+.high-footer-2{
   height:100px;
   text-align:center;
   margin:auto;
@@ -90,4 +95,11 @@ background-color: #FFFFFF;
 .shopSelection{
   background-image: url("../img/zara.jpg");
 
+}
+
+.nearbyLocations{
+	position:relative;
+	float:right;
+	bottom:110px;
+	margin-right:5px;
 }

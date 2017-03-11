@@ -1,8 +1,8 @@
 <ion-view title="AppName">
   <ion-content>
 
-         <div class="floating-search-bar"> <!-- Search bar -->
-           <label class="item item-input">
+         <div class="floating-search-bar" > <!-- Search bar -->
+           <label class="item item-input" style="background-color:rgba(255, 255, 255, 0.9); box-shadow: 1px 1px 2px #000000">
              <i class="icon ion-search placeholder-icon"></i>
              <input type="search" placeholder="Search">
            </label>
@@ -11,8 +11,12 @@
 
          <div id="map" data-tap-disabled="true"></div>
 
-         <div class="bar bar-footer bar-balanced high-footer">
-            <div class="footer-text">Select a store<br/> or <br/>scan a tag.</div>
+         <button class="button button-balanced nearbyLocations" style=" box-shadow: 1px 1px 2px #000000">
+           <i class="ion-radio-waves"></i>&nbsp;15 nearby shops
+         </button>
+
+         <div class="bar bar-footer bar-dark high-footer">
+            <div class="footer-text">Select a store or scan an NFC tag.</div>
          </div>
      </ion-content>
 </title>
