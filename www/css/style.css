@@ -103,3 +103,40 @@ background-color: #FFFFFF;
 	bottom:110px;
 	margin-right:5px;
 }
+
+
+.finishButton{
+	position: absolute;
+	left:151px;
+	top:530px;
+}
+
+.tick-image{
+	max-width:100%;
+	height:50%;
+	margin:auto;
+	display:block;
+ margin-left:auto;
+ margin-right:auto;
+ position:relative;
+ top:40px;
+}
+
+
+.thank-you{
+	color: green;
+	font-size: 3em;
+	font-style: bold;
+	position:relative;
+	top:55px;
+	left:105px;
+}
+
+.thank-you-sub{
+	color: green;
+	font-size: 2em;
+	font-style: bold;
+	position:relative;
+	top:60px;
+	left:35px;
+}
