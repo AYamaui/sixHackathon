@@ -7,7 +7,7 @@
     <ion-content class='shorter-content'>
 
         <ion-list>
-            <ion-item item-left ng-repeat="item in list" class="item-text-wrap">
+            <ion-item item-left ng-repeat="item in list" class="item-text-wrap" ng-click="$index==1 && scanNFC();">
 
                 <ion-thumbnail item-left class="item-thumbnail-left">
 			      	<img ng-src="{{item.imgUrl}}">
