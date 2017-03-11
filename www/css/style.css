@@ -1,7 +1,40 @@
 /* Empty. Add your own CSS if you like */
-
-.helper {
-    display: inline-block;
+.scroll {
     height: 100%;
-    vertical-align: middle;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+
+.floating-search-bar{
+
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  width: 95%;
+
+}
+
+.floating-start-button{
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+
+
+
+}
+
+.high-footer{
+  height:100px;
+  text-align:center;
+  margin:auto;
+}
+
+.footer-text{
+  text-align:center;
+  margin: auto;
+  font-size:1.5em;
 }

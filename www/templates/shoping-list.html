@@ -1,0 +1,11 @@
+<ion-view view-title="Shoping List">
+
+    <ion-content>
+
+        <ion-list>
+            <ion-item class="item-remove-animate item-icon-right" collection-repeat="item in list" type="item-text-wrap"
+                      href="#/tab/lists/{{item.id}}">{{list.name}}
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
