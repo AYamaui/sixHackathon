@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','ngCordova'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','ngCordova','ngCordova.plugins.nfc','ionic-toast'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -35,14 +35,20 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
 
 
 
-
-
     .state('map', {
       url: '/map',
       abstract: false,
       templateUrl: 'templates/map.html',
       controller: 'MapCtrl'
     })
+
+    .state('shopSelected', {
+      url: '/shopSelected/:name',
+      abstract: false,
+      templateUrl: 'templates/shopSelected.html',
+      controller: 'ShopSelectedCtrl'
+    })
+
 
 
   .state('finish', {
