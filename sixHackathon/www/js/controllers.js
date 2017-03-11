@@ -26,7 +26,3 @@ angular.module('starter.controllers', [])
     enableFriends: true
   };
 });
-
-.controller('ShopingListCtrl', function($scope) {
-  $scope.list = [{id: 1, name: 't-shirt'}, {id: 2, name: 'blaus'}];
-});
