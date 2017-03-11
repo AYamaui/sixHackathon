@@ -36,6 +36,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
 
 
 
+
     .state('map', {
       url: '/map',
       abstract: false,
@@ -43,13 +44,21 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
       controller: 'MapCtrl'
     })
 
-    .state('finish', {
-      url: '/finish',
-      abstract: false,
-      templateUrl: 'templates/finish.html'
-    })
 
-    .state('tab', {
+  .state('finish', {
+    url: '/finish',
+    abstract: false,
+    templateUrl: 'templates/finish.html'
+  })
+
+  .state('shoping', {
+    url: '/shoping',
+    abstract: false,
+    templateUrl: 'templates/shoping-list.html',
+    controller: 'ShopingListCtrl'
+  })
+
+  .state('tab', {
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html'
