@@ -32,6 +32,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   $stateProvider
 
   // setup an abstract state for the tabs directive
+
+   
+
+
+    .state('map', {
+      url: '/map',
+      abstract: false,
+      templateUrl: 'templates/map.html'
+    })
+
+    .state('finish', {
+      url: '/finish',
+      abstract: false,
+      templateUrl: 'templates/finish.html'
+    })
+
     .state('tab', {
     url: '/tab',
     abstract: true,
