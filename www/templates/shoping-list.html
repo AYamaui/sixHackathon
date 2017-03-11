@@ -1,11 +1,36 @@
-<ion-view view-title="Shoping List">
+<ion-view view-title="Shoping List" class="title-center">
 
-    <ion-content>
+    <ion-content class='shorter-content'>
 
         <ion-list>
-            <ion-item class="item-remove-animate item-icon-right" collection-repeat="item in list" type="item-text-wrap"
-                      href="#/tab/lists/{{item.id}}">{{list.name}}
+            <ion-item item-left ng-repeat="item in list" class="item-text-wrap">
+
+                <ion-thumbnail item-left class="item-thumbnail-left">
+			      	<img ng-src="{{item.imgUrl}}">
+			    </ion-thumbnail>
+			    <div class="item-description">
+				    <h2>{{item.name}}</h2>
+				    <p>{{item.price}}</p>
+				</div>
             </ion-item>
         </ion-list>
+
     </ion-content>
+
+    <div class="total item-icon-left">
+        <div class="total-sum">
+          <p>
+          	<i class="icon ion-ios-cart"></i>
+          	Total: </p>
+        </div>
+    </div>
+
+    <div class="tabs">
+	  <a class="tab-item">
+	    Explore
+	  </a>
+	  <a class="tab-item">
+	    Pay
+	  </a>
+	</div>
 </ion-view>
