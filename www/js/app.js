@@ -48,9 +48,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     templateUrl: 'templates/finish.html'
   })
 
-  .state('shoping', {
-    url: '/shoping',
+  .state('shoping-list', {
+    url: '/shoping-list',
     abstract: false,
+    cache: false,
     templateUrl: 'templates/shoping-list.html',
     controller: 'ShopingListCtrl'
   })
