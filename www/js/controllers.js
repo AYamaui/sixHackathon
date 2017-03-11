@@ -64,4 +64,13 @@ angular.module('starter.controllers', [])
                 {id: 2, name: 'Floral Embroidery Silk Top Blouse', imgUrl: 'http://thumbs.ebaystatic.com/images/g/5l0AAOSwRgJXhQCx/s-l225.jpg', price: '$23'},
                 {id: 3, name: 'Ripped Trousers in Black', imgUrl: 'https://cdnd.lystit.com/photos/0ceb-2016/01/26/zara-black-ripped-trousers-product-1-609239874-normal.jpeg', price: '$23'},
                 {id: 4, name: 'Leather High Heel Ankle Black', imgUrl: 'https://cdnd.lystit.com/photos/8c44-2015/09/03/zara-black-leather-high-heel-ankle-boots-leather-high-heel-ankle-boots-product-6-288278930-normal.jpeg', price: '$23'}];
+})
+
+.controller('RecommendationListCtrl', function($scope) {
+  $scope.list = [{id: 1, name: 'Pleated Mini Skirt', imgUrl: 'http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=96161043', price: '$46', hasSale: false, points: 0},
+                {id: 1, name: 'Pleated Mini Skirt', imgUrl: 'http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=86317292', price: '$46', hasSale: false, points: 3},
+                {id: 1, name: 'Scarve', imgUrl: 'http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=164909253', price: '$12', salePrice: '$8', hasSale: true, points: 0}];
+})
+
+.controller('PrizeCtrl', function($scope) {
 });

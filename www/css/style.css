@@ -1,6 +1,10 @@
 /* Shoping List */
-ion-item .item-description{
-	padding-left: 90px;
+ion-item .item-description {
+	width: 80%;
+}
+
+ion-item a {
+	float: right;
 }
 
 .total {
@@ -21,12 +25,64 @@ ion-item .item-description{
 
 .shorter-content {
 	height: 70%;
+}
+
+/* End Shoping List */
+
+/* Recommendation List */
+
+.item p.sale-price  {
+	color: #ef473a;
+}
+
+.prize-icon {
+	font-size: 40px;
+    vertical-align: middle;
+    padding-top: 30px;
+    padding-right: 10px;
+    color: #ef473a;
+}
+
+.line-through {
+	text-decoration: line-through;
+}
+
+/* End Recommendation List */
+
+/* Prize screen */
+.trophy {
+	font-size: 200px;
+	text-align: center;
+	padding-top: 30%;
+	color: Goldenrod;
+}
+
+.points {
+	font-size: 20px;
+	color: #ef473a;
+	text-align: center;
+}
+
+.level-up {
+	font-size: 40px;
+	color: DodgerBlue;
+	text-align: center;
+	padding-top: 30px;
+}
+
+.total-points {
+	font-size: 30px;
+	color: #ef473a;
+	text-align: center;
+	padding-top: 20px;
+}
+
+/* End prize screen*/
+
 
 .scroll {
     height: 100%;
 }
-
-/* End Shoping List */
 
 #map {
     width: 100%;

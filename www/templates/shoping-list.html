@@ -1,19 +1,23 @@
 <ion-view view-title="Shoping List" class="title-center">
 
-    <ion-content class='shorter-content'>
+    <ion-content class=''>
 
         <ion-list>
-            <ion-item item-left ng-repeat="item in list" class="item-text-wrap">
+            <ion-item item-left ng-repeat="item in list" class="item-text-wrap row">
 
                 <ion-thumbnail item-left class="item-thumbnail-left">
 			      	<img ng-src="{{item.imgUrl}}">
 			    </ion-thumbnail>
-			    <div class="item-description">
+			    <div class="item-description col">
 				    <h2>{{item.name}}</h2>
 				    <p>{{item.price}}</p>
 				</div>
             </ion-item>
         </ion-list>
+        <button class="button button-block button-assertive">
+        	<i class="icon ion-card"></i>
+        	Pay
+        </button>
 
     </ion-content>
 
@@ -25,12 +29,28 @@
         </div>
     </div>
 
-    <div class="tabs">
-	  <a class="tab-item">
-	    Explore
-	  </a>
-	  <a class="tab-item">
-	    Pay
-	  </a>
-	</div>
+    <div class="tabs-striped tabs-bottom tabs-background-positive tabs-color-light tabs-icon-top">
+        <div class="tabs">
+          <a class="tab-item" ui-sref="recommendation-list">
+            <i class="icon ion-ios-star"></i>
+            Explore
+          </a>
+          <a class="tab-item active" href="#">
+            <i class="icon ion-card"></i>
+            Pay
+          </a>
+        </div>
+      </div>
+      <div class="tabs-striped tabs-color-assertive tabs-icon-top">
+        <div class="tabs">
+          <a class="tab-item" ui-sref="recommendation-list">
+            <i class="icon ion-ios-star"></i>
+            Explore
+          </a>
+          <a class="tab-item active" href="#">
+            <i class="icon ion-ios-list"></i>
+            Shoping List
+          </a>
+        </div>
+    </div>
 </ion-view>

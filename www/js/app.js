@@ -59,6 +59,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
     controller: 'ShopingListCtrl'
   })
 
+  .state('recommendation-list', {
+    url: '/recommendation-list',
+    abstract: false,
+    cache: false,
+    templateUrl: 'templates/recommendation-list.html',
+    controller: 'RecommendationListCtrl'
+  })
+
+  .state('prize', {
+    url: '/prize',
+    abstract: false,
+    cache: false,
+    templateUrl: 'templates/prize.html',
+    controller: 'PrizeCtrl'
+  })
+
   .state('tab', {
     url: '/tab',
     abstract: true,
