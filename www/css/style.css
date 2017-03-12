@@ -20,8 +20,8 @@ ion-item a {
 }
 
 .item.active, .item.activated, .item-complex.active .item-content, .item-complex.activated .item-content {
-border-color: #ccc;
-background-color: #FFFFFF;
+	border-color: #ccc;
+	background-color: #FFFFFF;
 }
 
 .total-sum {
@@ -29,7 +29,7 @@ background-color: #FFFFFF;
 }
 
 .shorter-content {
-	height: 70%;
+	height: 80%;
 }
 
 /* End Shoping List */
