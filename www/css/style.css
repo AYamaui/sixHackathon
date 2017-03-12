@@ -8,8 +8,8 @@ ion-item a {
 }
 
 .total {
-	position: absolute; 
-	bottom: 49px; 
+	position: absolute;
+	bottom: 49px;
 	width: 100%;
 	height: 40px;
 	background-color: Gainsboro;
@@ -17,6 +17,11 @@ ion-item a {
 
 .total p {
 	margin-top: 10px;
+}
+
+.item.active, .item.activated, .item-complex.active .item-content, .item-complex.activated .item-content {
+border-color: #ccc;
+background-color: #FFFFFF;
 }
 
 .total-sum {
@@ -32,7 +37,7 @@ ion-item a {
 /* Recommendation List */
 
 .item p.sale-price  {
-	color: #ef473a;
+	color: #DD4D3A;
 }
 
 .prize-icon {
@@ -40,7 +45,14 @@ ion-item a {
     vertical-align: middle;
     padding-top: 30px;
     padding-right: 10px;
-    color: #ef473a;
+}
+
+.yellow {
+	color: #FFE161;
+}
+
+.green {
+	color: #2EAFA3;
 }
 
 .line-through {
@@ -54,25 +66,25 @@ ion-item a {
 	font-size: 200px;
 	text-align: center;
 	padding-top: 30%;
-	color: Goldenrod;
+	color: #FFE161;
 }
 
 .points {
 	font-size: 20px;
-	color: #ef473a;
+	color: #DD4D3A;
 	text-align: center;
 }
 
 .level-up {
 	font-size: 40px;
-	color: DodgerBlue;
+	color: #2EAFA3;
 	text-align: center;
 	padding-top: 30px;
 }
 
 .total-points {
 	font-size: 30px;
-	color: #ef473a;
+	color: #DD4D3A;
 	text-align: center;
 	padding-top: 20px;
 }
@@ -109,13 +121,95 @@ ion-item a {
 }
 
 .high-footer{
+  height:50px;
+  text-align:center;
+  margin:auto;
+}
+.high-footer-2{
   height:100px;
   text-align:center;
   margin:auto;
+  background-color: #DD4D3A;
+  color: white;
 }
 
 .footer-text{
   text-align:center;
   margin: auto;
   font-size:1.5em;
+}
+
+.shop-selected-container{
+  position: relative;
+  top: 150px;
+}
+.shop-selected-title{
+  text-align:center;
+  font-size:1.4em;
+  margin-bottom:10px;
+
+}
+
+
+.shop-selected-text{
+  text-align: center;
+  font-size:2em;
+}
+
+.shopSelection{
+  background-image: url("../img/zara.jpg");
+
+}
+
+.nearbyLocations{
+	position:relative;
+	float:right;
+	bottom:110px;
+	margin-right:5px;
+	color: white;
+	background-color: #2EAFA3;
+}
+
+
+.finishButton{
+	position: absolute;
+	left:151px;
+	top:530px;
+	color: #DD4D3A;
+}
+
+.tick-image{
+	max-width:100%;
+	height:50%;
+	margin:auto;
+	display:block;
+	 margin-left:auto;
+	 margin-right:auto;
+	 position:relative;
+	 top:40px;
+ 	font-size: 300px;
+ 	color: #FFE161;
+}
+
+.finish-icon-container {
+	text-align: center;
+}
+
+
+.thank-you{
+	color: #2EAFA3;
+	font-size: 3em;
+	font-style: bold;
+	position:relative;
+	top:55px;
+	left:105px;
+}
+
+.thank-you-sub{
+	color: #2EAFA3;
+	font-size: 2em;
+	font-style: bold;
+	position:relative;
+	top:60px;
+	left:35px;
 }

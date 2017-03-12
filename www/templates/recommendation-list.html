@@ -10,13 +10,13 @@
 			    </ion-thumbnail>
 			    <div class="item-description">
 				    <h2>{{item.name}}</h2>
-				    <p ng-class="{'line-through': item.salePrice}">{{item.price}}</p>
-                    <p class="sale-price">{{item.salePrice}}</p>
+				    <p ng-class="{'line-through': item.salePrice}">{{item.price | currency : symbol}}</p>
+                    <p class="sale-price">{{item.salePrice | currency : symbol}}</p>
 				</div>
-                <a ng-if="item.hasSale" class="prize-icon red">
+                <a ng-if="item.hasSale" class="prize-icon green">
                   <i class="icon ion-ios-pricetag"></i>
                 </a>
-                <a ng-if="item.points > 0" ui-sref="prize" class="prize-icon red">
+                <a ng-if="item.points > 0" ui-sref="prize" class="prize-icon yellow">
                     <i class="icon ion-android-star"></i>
                 </a>
             </ion-item>

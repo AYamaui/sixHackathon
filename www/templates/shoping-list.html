@@ -1,20 +1,24 @@
-<ion-view view-title="Shoping List" class="title-center">
-
-    <ion-content class=''>
+<ion-view view-title="Shopping List" class="title-center">
+  <ion-nav-buttons side="primary">
+       <button class="button" ng-click="takePhoto()">
+         <i class="ion-ios-barcode-outline" style="font-size:2em;"></i>
+       </button>
+     </ion-nav-buttons>
+    <ion-content>
 
         <ion-list>
-            <ion-item item-left ng-repeat="item in list" class="item-text-wrap row">
+            <ion-item item-left ng-repeat="item in list" class="item-text-wrap row" ng-click="$index==1 && scanNFC();">
 
                 <ion-thumbnail item-left class="item-thumbnail-left">
 			      	<img ng-src="{{item.imgUrl}}">
 			    </ion-thumbnail>
 			    <div class="item-description col">
 				    <h2>{{item.name}}</h2>
-				    <p>{{item.price}}</p>
+				    <p>{{item.price | currency : symbol}}</p>
 				</div>
             </ion-item>
         </ion-list>
-        <button class="button button-block button-assertive">
+        <button class="button button-block button-assertive" ui-sref="finish">
         	<i class="icon ion-card"></i>
         	Pay
         </button>
@@ -25,7 +29,7 @@
         <div class="total-sum">
           <p>
           	<i class="icon ion-ios-cart"></i>
-          	Total: </p>
+          	Total: {{total() | currency : symbol}}</p>
         </div>
     </div>
 
