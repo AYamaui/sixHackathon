@@ -1,6 +1,10 @@
 /* Shoping List */
-ion-item .item-description{
-	padding-left: 90px;
+ion-item .item-description {
+	width: 80%;
+}
+
+ion-item a {
+	float: right;
 }
 
 .total {
@@ -16,8 +20,8 @@ ion-item .item-description{
 }
 
 .item.active, .item.activated, .item-complex.active .item-content, .item-complex.activated .item-content {
-border-color: #ccc;
-background-color: #FFFFFF;
+	border-color: #ccc;
+	background-color: #FFFFFF;
 }
 
 .total-sum {
@@ -25,14 +29,72 @@ background-color: #FFFFFF;
 }
 
 .shorter-content {
-	height: 70%;
+	height: 80%;
 }
+
+/* End Shoping List */
+
+/* Recommendation List */
+
+.item p.sale-price  {
+	color: #DD4D3A;
+}
+
+.prize-icon {
+	font-size: 40px;
+    vertical-align: middle;
+    padding-top: 30px;
+    padding-right: 10px;
+}
+
+.yellow {
+	color: #FFE161;
+}
+
+.green {
+	color: #2EAFA3;
+}
+
+.line-through {
+	text-decoration: line-through;
+}
+
+/* End Recommendation List */
+
+/* Prize screen */
+.trophy {
+	font-size: 200px;
+	text-align: center;
+	padding-top: 30%;
+	color: #FFE161;
+}
+
+.points {
+	font-size: 20px;
+	color: #DD4D3A;
+	text-align: center;
+}
+
+.level-up {
+	font-size: 40px;
+	color: #2EAFA3;
+	text-align: center;
+	padding-top: 30px;
+}
+
+.total-points {
+	font-size: 30px;
+	color: #DD4D3A;
+	text-align: center;
+	padding-top: 20px;
+}
+
+/* End prize screen*/
+
 
 .scroll {
     height: 100%;
 }
-
-/* End Shoping List */
 
 #map {
     width: 100%;
@@ -67,6 +129,8 @@ background-color: #FFFFFF;
   height:100px;
   text-align:center;
   margin:auto;
+  background-color: #DD4D3A;
+  color: white;
 }
 
 .footer-text{
@@ -102,6 +166,8 @@ background-color: #FFFFFF;
 	float:right;
 	bottom:110px;
 	margin-right:5px;
+	color: white;
+	background-color: #2EAFA3;
 }
 
 
@@ -109,6 +175,7 @@ background-color: #FFFFFF;
 	position: absolute;
 	left:151px;
 	top:530px;
+	color: #DD4D3A;
 }
 
 .tick-image{
@@ -116,15 +183,21 @@ background-color: #FFFFFF;
 	height:50%;
 	margin:auto;
 	display:block;
- margin-left:auto;
- margin-right:auto;
- position:relative;
- top:40px;
+	 margin-left:auto;
+	 margin-right:auto;
+	 position:relative;
+	 top:40px;
+ 	font-size: 300px;
+ 	color: #FFE161;
+}
+
+.finish-icon-container {
+	text-align: center;
 }
 
 
 .thank-you{
-	color: green;
+	color: #2EAFA3;
 	font-size: 3em;
 	position:relative;
 	top:55px;
@@ -132,7 +205,7 @@ background-color: #FFFFFF;
 }
 
 .thank-you-sub{
-	color: green;
+	color: #2EAFA3;
 	font-size: 2em;
 	position:relative;
 	top:60px;

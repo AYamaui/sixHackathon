@@ -1,40 +1,65 @@
 <ion-view view-title="Shopping List" class="title-center">
+
   <ion-nav-buttons side="primary">
        <button class="button" ng-click="takePhoto()">
          <i class="ion-ios-barcode-outline" style="font-size:2em;"></i>
        </button>
-     </ion-nav-buttons>
-    <ion-content class='shorter-content'>
+  </ion-nav-buttons>
 
-        <ion-list>
-            <ion-item item-left ng-repeat="item in list" class="item-text-wrap" ng-click="$index==1 && scanNFC();">
+  <ion-content class='shorter-content'>
 
-                <ion-thumbnail item-left class="item-thumbnail-left">
-			      	<img ng-src="{{item.imgUrl}}">
-			    </ion-thumbnail>
-			    <div class="item-description">
-				    <h2>{{item.name}}</h2>
-				    <p>{{item.price}}</p>
-				</div>
-            </ion-item>
-        </ion-list>
+    <ion-list>
+      <ion-item item-left ng-repeat="item in list" class="item-text-wrap row" ng-click="$index==1 && scanNFC();">
 
-    </ion-content>
+        <ion-thumbnail item-left class="item-thumbnail-left">
+      	  <img ng-src="{{item.imgUrl}}">
+        </ion-thumbnail>
+
+		    <div class="item-description">
+			    <h2>{{item.name}}</h2>
+			    <p>{{item.price | currency : symbol}}</p>
+          <span class="prize-icon yellow">
+          </span>
+			  </div>
+      </ion-item>
+    </ion-list>
+    <button class="button button-block button-assertive" ui-sref="finish">
+    	<i class="icon ion-card"></i>
+    	Pay
+    </button>
+
+  </ion-content>
 
     <div class="total item-icon-left">
         <div class="total-sum">
           <p>
           	<i class="icon ion-ios-cart"></i>
-          	Total: </p>
+          	Total: {{total() | currency : symbol}}</p>
         </div>
     </div>
 
-    <div class="tabs">
-	  <a class="tab-item">
-	    Explore
-	  </a>
-	  <a class="tab-item">
-	    Pay
-	  </a>
-	</div>
+    <div class="tabs-striped tabs-bottom tabs-background-positive tabs-color-light tabs-icon-top">
+        <div class="tabs">
+          <a class="tab-item" ui-sref="recommendation-list">
+            <i class="icon ion-ios-star"></i>
+            Explore
+          </a>
+          <a class="tab-item active" href="#">
+            <i class="icon ion-card"></i>
+            Pay
+          </a>
+        </div>
+      </div>
+      <div class="tabs-striped tabs-color-assertive tabs-icon-top">
+        <div class="tabs">
+          <a class="tab-item" ui-sref="recommendation-list">
+            <i class="icon ion-ios-star"></i>
+            Explore
+          </a>
+          <a class="tab-item active" href="#">
+            <i class="icon ion-ios-list"></i>
+            Shoping List
+          </a>
+        </div>
+    </div>
 </ion-view>

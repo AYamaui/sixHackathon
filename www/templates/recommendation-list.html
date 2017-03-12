@@ -1,0 +1,52 @@
+<ion-view view-title="Recomendation List" class="title-center">
+
+  <ion-content class='shorter-content'>
+
+    <ion-list>
+      <ion-item item-left ng-repeat="item in list" class="item-text-wrap row">
+
+        <ion-thumbnail item-left class="item-thumbnail-left item-button-right" style="padding-left: 20px;">
+      	  <img ng-src="{{item.imgUrl}}">
+        </ion-thumbnail>
+    
+        <div class="item-description">
+		      <h2>{{item.name}}</h2>
+		      <p ng-class="{'line-through': item.salePrice}">{{item.price | currency : symbol}}</p>
+          <p class="sale-price">{{item.salePrice | currency : symbol}}</p>
+		    </div>
+
+        <a ng-if="item.hasSale" class="prize-icon green">
+          <i class="icon ion-ios-pricetag"></i>
+        </a>
+        <a ng-if="item.points > 0" ui-sref="prize" class="prize-icon yellow">
+            <i class="icon ion-android-star"></i>
+        </a>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+
+  <div class="tabs-striped tabs-bottom tabs-background-positive tabs-color-light tabs-icon-top">
+    <div class="tabs">
+      <a class="tab-item active" href="#">
+        <i class="icon ion-ios-star"></i>
+        Explore
+      </a>
+      <a class="tab-item" ui-sref="shoping-list">
+        <i class="icon ion-ios-list"></i>
+        Shoping List
+      </a>
+    </div>
+  </div>
+  <div class="tabs-striped tabs-color-assertive tabs-icon-top">
+    <div class="tabs">
+      <a class="tab-item active" href="#">
+        <i class="icon ion-ios-star"></i>
+        Explore
+      </a>
+      <a class="tab-item" ui-sref="shoping-list">
+        <i class="icon ion-ios-list"></i>
+        Shoping List
+      </a>
+    </div>
+  </div>
+</ion-view>

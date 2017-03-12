@@ -118,50 +118,80 @@ angular.module('starter.controllers', [])
       function(err){
         console.log("error");
       });
-    });
+  });
 
-    $cordovaNfcUtil.then(function(nfcUtil){
+  $cordovaNfcUtil.then(function(nfcUtil){
       console.log( nfcUtil.bytesToString("some bytes") )
     });
 
-  })
+})
 
-  .controller('DashCtrl', function($scope) {})
+.controller('DashCtrl', function($scope) {})
 
-  .controller('ChatsCtrl', function($scope, Chats) {
-    // With the new view caching in Ionic, Controllers are only called
-    // when they are recreated or on app start, instead of every page change.
-    // To listen for when this page is active (for example, to refresh data),
-    // listen for the $ionicView.enter event:
-    //
-    //$scope.$on('$ionicView.enter', function(e) {
-    //});
+.controller('ChatsCtrl', function($scope, Chats) {
+  // With the new view caching in Ionic, Controllers are only called
+  // when they are recreated or on app start, instead of every page change.
+  // To listen for when this page is active (for example, to refresh data),
+  // listen for the $ionicView.enter event:
+  //
+  //$scope.$on('$ionicView.enter', function(e) {
+  //});
 
-    $scope.chats = Chats.all();
-    $scope.remove = function(chat) {
-      Chats.remove(chat);
-    };
-  })
+  $scope.chats = Chats.all();
+  $scope.remove = function(chat) {
+    Chats.remove(chat);
+  };
+})
 
-  .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-    $scope.chat = Chats.get($stateParams.chatId);
-  })
+.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
+  $scope.chat = Chats.get($stateParams.chatId);
+})
 
-  .controller('AccountCtrl', function($scope) {
-    $scope.settings = {
-      enableFriends: true
-    };
-  })
+.controller('AccountCtrl', function($scope) {
+  $scope.settings = {
+    enableFriends: true
+  };
+})
 
-  .controller('ShopingListCtrl', function($scope,$cordovaBarcodeScanner,ionicToast) {
-    $scope.list = [{id: 1, name: 'Fantasy Fabric Dress', imgUrl: 'http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=86316898', price: '$46'},
-    {id: 2, name: 'Floral Embroidery Silk Top Blouse', imgUrl: 'http://thumbs.ebaystatic.com/images/g/5l0AAOSwRgJXhQCx/s-l225.jpg', price: '$23'},
-    {id: 3, name: 'Ripped Trousers in Black', imgUrl: 'https://cdnd.lystit.com/photos/0ceb-2016/01/26/zara-black-ripped-trousers-product-1-609239874-normal.jpeg', price: '$23'},
-    {id: 4, name: 'Leather High Heel Ankle Black', imgUrl: 'https://cdnd.lystit.com/photos/8c44-2015/09/03/zara-black-leather-high-heel-ankle-boots-leather-high-heel-ankle-boots-product-6-288278930-normal.jpeg', price: '$23'}];
+.controller('ShopingListCtrl', function($scope,$cordovaBarcodeScanner,ionicToast) {
+  $scope.list = [{id: 1, name: 'Fantasy Fabric Dress', imgUrl: 'http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=86316898', price: 46},
+  {id: 2, name: 'Floral Embroidery Silk Top Blouse', imgUrl: 'http://thumbs.ebaystatic.com/images/g/5l0AAOSwRgJXhQCx/s-l225.jpg', price: 23},
+  {id: 3, name: 'Ripped Trousers in Black', imgUrl: 'https://cdnd.lystit.com/photos/0ceb-2016/01/26/zara-black-ripped-trousers-product-1-609239874-normal.jpeg', price: 23},
+  {id: 4, name: 'Leather High Heel Ankle Black', imgUrl: 'https://cdnd.lystit.com/photos/8c44-2015/09/03/zara-black-leather-high-heel-ankle-boots-leather-high-heel-ankle-boots-product-6-288278930-normal.jpeg', price: 23}];
 
-    $scope.scanNFC = function(){
+  $scope.scanNFC = function(){
 
-      ionicToast.show('NFC tag read correctly', 'middle', false, 1000);
+    ionicToast.show('NFC tag read correctly', 'middle', false, 1000);
+    var indice =  Math.floor(Math.random() * ($scope.list.length - 0 + 1)) + 0;
+    var json = JSON.stringify($scope.list[indice]);
+
+    var copy = JSON.parse(json);
+    copy.id = $scope.list.length + 1;
+    copy.$$hashKey = undefined;
+    $scope.list.push(copy);
+
+  }
+  $scope.takePhoto = function(){
+
+    if(ionic.Platform.isIOS() || ionic.Platform.isAndroid()){
+
+      $cordovaBarcodeScanner
+      .scan()
+      .then(function(barcodeData) {
+        // Success! Barcode data is here
+        var indice =  Math.floor(Math.random() * ($scope.list.length - 0 + 1)) + 0;
+        var json = JSON.stringify($scope.list[indice]);
+        var copy = JSON.parse(json);
+        copy.id = $scope.list.length + 1;
+        copy.$$hashKey = undefined;
+        $scope.list.push(copy);
+
+      }, function(error) {
+
+        // An error occurred
+      });
+    }
+    else{
       var indice =  Math.floor(Math.random() * ($scope.list.length - 0 + 1)) + 0;
       var json = JSON.stringify($scope.list[indice]);
 
@@ -169,48 +199,42 @@ angular.module('starter.controllers', [])
       copy.id = $scope.list.length + 1;
       copy.$$hashKey = undefined;
       $scope.list.push(copy);
-
-    }
-    $scope.takePhoto = function(){
-
-      if(ionic.Platform.isIOS() || ionic.Platform.isAndroid()){
-
-        $cordovaBarcodeScanner
-        .scan()
-        .then(function(barcodeData) {
-          // Success! Barcode data is here
-          var indice =  Math.floor(Math.random() * ($scope.list.length - 0 + 1)) + 0;
-          var json = JSON.stringify($scope.list[indice]);
-          var copy = JSON.parse(json);
-          copy.id = $scope.list.length + 1;
-          copy.$$hashKey = undefined;
-          $scope.list.push(copy);
-
-        }, function(error) {
-
-          // An error occurred
-        });
-      }
-      else{
-        var indice =  Math.floor(Math.random() * ($scope.list.length - 0 + 1)) + 0;
-        var json = JSON.stringify($scope.list[indice]);
-
-        var copy = JSON.parse(json);
-        copy.id = $scope.list.length + 1;
-        copy.$$hashKey = undefined;
-        $scope.list.push(copy);
-      }
-
-
-    }
-  })
-
-
-  .controller('ShopSelectedCtrl', function($scope,$state,ionicToast,$stateParams) {
-
-    $scope.shopName = $stateParams.name;
-    $scope.startShoping = function(){
-      ionicToast.show('Enjoy your shopping at ' + $stateParams.name, 'middle', false, 2500);    $state.go("shoping-list");
     }
 
-  });
+
+  }
+
+  $scope.total = function() {
+    var total = 0;
+    for (var i = 0; i < $scope.list.length; i++) {
+      total += $scope.list[i].price;
+    }
+    
+    return total;
+  }
+})
+
+
+.controller('ShopSelectedCtrl', function($scope,$state,ionicToast,$stateParams) {
+
+  $scope.shopName = $stateParams.name;
+  $scope.startShoping = function(){
+    ionicToast.show('Enjoy your shopping at ' + $stateParams.name, 'middle', false, 2500);    $state.go("shoping-list");
+  }
+
+})
+
+.controller('AccountCtrl', function($scope) {
+  $scope.settings = {
+    enableFriends: true
+  };
+})
+
+.controller('RecommendationListCtrl', function($scope) {
+  $scope.list = [{id: 1, name: 'Pleated Mini Skirt', imgUrl: 'http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=96161043', price: 46, hasSale: false, points: 0},
+                {id: 1, name: 'Pleated Mini Skirt', imgUrl: 'http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=86317292', price: 46, hasSale: false, points: 3},
+                {id: 1, name: 'Scarve', imgUrl: 'http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=164909253', price: 12, salePrice: 8, hasSale: true, points: 0}];
+})
+
+.controller('PrizeCtrl', function($scope) {
+});
