@@ -1,10 +1,10 @@
 angular.module('starter.controllers', [])
 
 
-.controller('MapCtrl', function($scope, $state, $cordovaGeolocation,$state,$cordovaNfc,$cordovaNfcUtil) {
+.controller('MapCtrl', function($scope, $state, $cordovaGeolocation,$state,$cordovaNfc,$cordovaNfcUtil, $rootScope) {
   var options = {timeout: 10000, enableHighAccuracy: true};
 
-
+  $rootScope.list = [];
 
   var latLng = new google.maps.LatLng(47.3741135, 8.5381864);
 
@@ -153,16 +153,14 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('ShoppingListCtrl', function($scope,$cordovaBarcodeScanner,ionicToast) {
+.controller('ShoppingListCtrl', function($scope, $rootScope,$cordovaBarcodeScanner,ionicToast) {
   $scope.allList =
   [
-    {id: 1, name: 'Fantasy Fabric Dress', imgUrl: 'http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=86316898', price: 46},
+    {id: 1, name: 'Fantasy Fabric Dress', imgUrl: 'http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=86316898', price: 46, points: 2},
     {id: 2, name: 'Floral Embroidery Silk Top Blouse', imgUrl: 'http://thumbs.ebaystatic.com/images/g/5l0AAOSwRgJXhQCx/s-l225.jpg', price: 23},
     {id: 3, name: 'Ripped Trousers in Black', imgUrl: 'https://cdnd.lystit.com/photos/0ceb-2016/01/26/zara-black-ripped-trousers-product-1-609239874-normal.jpeg', price: 23},
-    {id: 4, name: 'Leather High Heel Ankle Black', imgUrl: 'https://cdnd.lystit.com/photos/8c44-2015/09/03/zara-black-leather-high-heel-ankle-boots-leather-high-heel-ankle-boots-product-6-288278930-normal.jpeg', price: 23}
+    {id: 4, name: 'Leather High Heel Ankle Black', imgUrl: 'https://cdnd.lystit.com/photos/8c44-2015/09/03/zara-black-leather-high-heel-ankle-boots-leather-high-heel-ankle-boots-product-6-288278930-normal.jpeg', price: 23, points: 2}
   ];
-
-  $scope.list = [];
 
   $scope.scanNFC = function(){
 
@@ -171,9 +169,9 @@ angular.module('starter.controllers', [])
     var json = JSON.stringify($scope.allList[indice]);
 
     var copy = JSON.parse(json);
-    copy.id = $scope.list.length + 1;
+    copy.id = $rootScope.list.length + 1;
     copy.$$hashKey = undefined;
-    $scope.list.push(copy);
+    $rootScope.list.push(copy);
 
   }
   $scope.takePhoto = function(){
@@ -184,12 +182,12 @@ angular.module('starter.controllers', [])
       .scan()
       .then(function(barcodeData) {
         // Success! Barcode data is here
-        var indice =  Math.floor(Math.random() * ($scope.list.length - 0 + 1)) + 0;
-        var json = JSON.stringify($scope.list[indice]);
+        var indice =  Math.floor(Math.random() * ($rootScope.list.length - 0 + 1)) + 0;
+        var json = JSON.stringify($rootScope.list[indice]);
         var copy = JSON.parse(json);
-        copy.id = $scope.list.length + 1;
+        copy.id = $rootScope.list.length + 1;
         copy.$$hashKey = undefined;
-        $scope.list.push(copy);
+        $rootScope.list.push(copy);
 
       }, function(error) {
 
@@ -197,13 +195,13 @@ angular.module('starter.controllers', [])
       });
     }
     else{
-      var indice =  Math.floor(Math.random() * ($scope.list.length - 0 + 1)) + 0;
-      var json = JSON.stringify($scope.list[indice]);
+      var indice =  Math.floor(Math.random() * ($rootScope.list.length - 0 + 1)) + 0;
+      var json = JSON.stringify($rootScope.list[indice]);
 
       var copy = JSON.parse(json);
-      copy.id = $scope.list.length + 1;
+      copy.id = $rootScope.list.length + 1;
       copy.$$hashKey = undefined;
-      $scope.list.push(copy);
+      $rootScope.list.push(copy);
     }
 
 
@@ -211,8 +209,8 @@ angular.module('starter.controllers', [])
 
   $scope.total = function() {
     var total = 0;
-    for (var i = 0; i < $scope.list.length; i++) {
-      total += $scope.list[i].price;
+    for (var i = 0; i < $rootScope.list.length; i++) {
+      total += $rootScope.list[i].price;
     }
 
     return total;
@@ -236,7 +234,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('RecommendationListCtrl', function($scope) {
-  $scope.list = [{id: 1, name: 'Hat with Leather details', imgUrl: 'http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=96161043', price: 46, hasSale: false, points: 0},
+  $scope.recommendationList = [{id: 1, name: 'Hat with Leather details', imgUrl: 'http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=96161043', price: 46, hasSale: false, points: 0},
                 {id: 1, name: 'Pleated Mini Skirt', imgUrl: 'http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=86317292', price: 46, hasSale: false, points: 3},
                 {id: 1, name: 'Scarve', imgUrl: 'http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=164909253', price: 12, salePrice: 8, hasSale: true, points: 0}];
 })
