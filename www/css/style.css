@@ -126,7 +126,6 @@ background-color: #FFFFFF;
 .thank-you{
 	color: green;
 	font-size: 3em;
-	font-style: bold;
 	position:relative;
 	top:55px;
 	left:105px;
@@ -135,7 +134,6 @@ background-color: #FFFFFF;
 .thank-you-sub{
 	color: green;
 	font-size: 2em;
-	font-style: bold;
 	position:relative;
 	top:60px;
 	left:35px;
