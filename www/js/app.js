@@ -62,7 +62,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
     abstract: false,
     cache: false,
     templateUrl: 'templates/shopping-list.html',
-    controller: 'shoppingListCtrl'
+    controller: 'ShoppingListCtrl'
   })
 
   .state('recommendation-list', {

@@ -8,7 +8,7 @@
 
   <ion-content class='shorter-content'>
 
-    <ion-list>
+    <ion-list >
       <ion-item item-left ng-repeat="item in list" class="item-text-wrap row" ng-click="$index==1 && scanNFC();">
 
         <ion-thumbnail item-left class="item-thumbnail-left item-button-right" style="padding-left: 20px;">
@@ -35,7 +35,7 @@
 
   </ion-content>
 
-    <div class="total item-icon-left">
+    <div class="total item-icon-left"  ng-click="scanNFC()">
         <div class="total-sum">
           <p>
           	<i class="icon ion-ios-cart"></i>

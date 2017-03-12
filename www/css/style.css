@@ -202,7 +202,6 @@ ion-item a {
 .thank-you{
 	color: #2EAFA3;
 	font-size: 3em;
-	font-style: bold;
 	position:relative;
 	top:55px;
 	left:105px;
@@ -211,7 +210,6 @@ ion-item a {
 .thank-you-sub{
 	color: #2EAFA3;
 	font-size: 2em;
-	font-style: bold;
 	position:relative;
 	top:60px;
 	left:35px;

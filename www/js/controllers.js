@@ -153,17 +153,22 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('shoppingListCtrl', function($scope,$cordovaBarcodeScanner,ionicToast) {
-  $scope.list = [{id: 1, name: 'Fantasy Fabric Dress', imgUrl: 'http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=86316898', price: 46, points: 2},
-  {id: 2, name: 'Floral Embroidery Silk Top Blouse', imgUrl: 'http://thumbs.ebaystatic.com/images/g/5l0AAOSwRgJXhQCx/s-l225.jpg', price: 23},
-  {id: 3, name: 'Ripped Trousers in Black', imgUrl: 'https://cdnd.lystit.com/photos/0ceb-2016/01/26/zara-black-ripped-trousers-product-1-609239874-normal.jpeg', price: 23},
-  {id: 4, name: 'Leather High Heel Ankle Black', imgUrl: 'https://cdnd.lystit.com/photos/8c44-2015/09/03/zara-black-leather-high-heel-ankle-boots-leather-high-heel-ankle-boots-product-6-288278930-normal.jpeg', price: 23, points: 1}];
+.controller('ShoppingListCtrl', function($scope,$cordovaBarcodeScanner,ionicToast) {
+  $scope.allList =
+  [
+    {id: 1, name: 'Fantasy Fabric Dress', imgUrl: 'http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=86316898', price: 46},
+    {id: 2, name: 'Floral Embroidery Silk Top Blouse', imgUrl: 'http://thumbs.ebaystatic.com/images/g/5l0AAOSwRgJXhQCx/s-l225.jpg', price: 23},
+    {id: 3, name: 'Ripped Trousers in Black', imgUrl: 'https://cdnd.lystit.com/photos/0ceb-2016/01/26/zara-black-ripped-trousers-product-1-609239874-normal.jpeg', price: 23},
+    {id: 4, name: 'Leather High Heel Ankle Black', imgUrl: 'https://cdnd.lystit.com/photos/8c44-2015/09/03/zara-black-leather-high-heel-ankle-boots-leather-high-heel-ankle-boots-product-6-288278930-normal.jpeg', price: 23}
+  ];
+
+  $scope.list = [];
 
   $scope.scanNFC = function(){
 
-    ionicToast.show('NFC tag read correctly', 'middle', false, 1000);
-    var indice =  Math.floor(Math.random() * ($scope.list.length - 0 + 1)) + 0;
-    var json = JSON.stringify($scope.list[indice]);
+    ionicToast.show('NFC tag read correctly', 'bottom', false, 1000);
+    var indice =  Math.floor(Math.random() * ($scope.allList.length - 0 + 1)) + 0;
+    var json = JSON.stringify($scope.allList[indice]);
     var copy = JSON.parse(json);
     copy.id = $scope.list.length + 1;
     copy.$$hashKey = undefined;
@@ -218,7 +223,7 @@ angular.module('starter.controllers', [])
 
   $scope.shopName = $stateParams.name;
   $scope.startshopping = function(){
-    ionicToast.show('Enjoy your shopping at ' + $stateParams.name, 'middle', false, 2500);    $state.go("recommendation-list");
+    ionicToast.show('Enjoy your shopping at ' + $stateParams.name, 'bottom', false, 2500);    $state.go("recommendation-list");
   }
 
 })
