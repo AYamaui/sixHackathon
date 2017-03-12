@@ -167,8 +167,9 @@ angular.module('starter.controllers', [])
   $scope.scanNFC = function(){
 
     ionicToast.show('NFC tag read correctly', 'bottom', false, 1000);
-    var indice =  Math.floor(Math.random() * ($scope.allList.length - 0 + 1)) + 0;
+    var indice =  Math.floor(Math.random() * ($scope.allList.length - 0)) + 0;
     var json = JSON.stringify($scope.allList[indice]);
+
     var copy = JSON.parse(json);
     copy.id = $scope.list.length + 1;
     copy.$$hashKey = undefined;
