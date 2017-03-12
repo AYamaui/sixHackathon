@@ -11,7 +11,7 @@
     <ion-list>
       <ion-item item-left ng-repeat="item in list" class="item-text-wrap row" ng-click="$index==1 && scanNFC();">
 
-        <ion-thumbnail item-left class="item-thumbnail-left">
+        <ion-thumbnail item-left class="item-thumbnail-left item-button-right" style="padding-left: 20px;">
       	  <img ng-src="{{item.imgUrl}}">
         </ion-thumbnail>
 
@@ -21,6 +21,11 @@
           <span class="prize-icon yellow">
           </span>
 			  </div>
+
+        <a ng-if="item.points > 0" ui-sref="prize" class="prize-icon yellow">
+            <i class="icon ion-android-star"></i>
+        </a>
+
       </ion-item>
     </ion-list>
     <button class="button button-block button-assertive" ui-sref="finish">

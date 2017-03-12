@@ -36,10 +36,6 @@ ion-item a {
 
 /* Recommendation List */
 
-.item p.sale-price  {
-	color: #DD4D3A;
-}
-
 .prize-icon {
 	font-size: 40px;
     vertical-align: middle;
@@ -53,6 +49,10 @@ ion-item a {
 
 .green {
 	color: #2EAFA3;
+}
+
+.red {
+	color: #DD4D3A;
 }
 
 .line-through {
@@ -71,7 +71,6 @@ ion-item a {
 
 .points {
 	font-size: 20px;
-	color: #DD4D3A;
 	text-align: center;
 }
 
@@ -87,6 +86,10 @@ ion-item a {
 	color: #DD4D3A;
 	text-align: center;
 	padding-top: 20px;
+}
+
+.item-description .sale-price {
+	color: #DD4D3A;
 }
 
 /* End prize screen*/

@@ -154,10 +154,10 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ShopingListCtrl', function($scope,$cordovaBarcodeScanner,ionicToast) {
-  $scope.list = [{id: 1, name: 'Fantasy Fabric Dress', imgUrl: 'http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=86316898', price: 46},
+  $scope.list = [{id: 1, name: 'Fantasy Fabric Dress', imgUrl: 'http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=86316898', price: 46, points: 2},
   {id: 2, name: 'Floral Embroidery Silk Top Blouse', imgUrl: 'http://thumbs.ebaystatic.com/images/g/5l0AAOSwRgJXhQCx/s-l225.jpg', price: 23},
   {id: 3, name: 'Ripped Trousers in Black', imgUrl: 'https://cdnd.lystit.com/photos/0ceb-2016/01/26/zara-black-ripped-trousers-product-1-609239874-normal.jpeg', price: 23},
-  {id: 4, name: 'Leather High Heel Ankle Black', imgUrl: 'https://cdnd.lystit.com/photos/8c44-2015/09/03/zara-black-leather-high-heel-ankle-boots-leather-high-heel-ankle-boots-product-6-288278930-normal.jpeg', price: 23}];
+  {id: 4, name: 'Leather High Heel Ankle Black', imgUrl: 'https://cdnd.lystit.com/photos/8c44-2015/09/03/zara-black-leather-high-heel-ankle-boots-leather-high-heel-ankle-boots-product-6-288278930-normal.jpeg', price: 23, points: 1}];
 
   $scope.scanNFC = function(){
 
@@ -209,7 +209,7 @@ angular.module('starter.controllers', [])
     for (var i = 0; i < $scope.list.length; i++) {
       total += $scope.list[i].price;
     }
-    
+
     return total;
   }
 })
@@ -237,4 +237,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PrizeCtrl', function($scope) {
+})
+
+.controller('PointsCtrl', function($scope) {
 });

@@ -81,11 +81,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
     controller: 'PrizeCtrl'
   })
 
-  .state('tab', {
-    url: '/tab',
-    abstract: true,
-    templateUrl: 'templates/tabs.html'
-  });
+  .state('points', {
+    url: '/points',
+    abstract: false,
+    cache: false,
+    templateUrl: 'templates/points.html',
+    controller: 'PointsCtrl'
+  })
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/map');
