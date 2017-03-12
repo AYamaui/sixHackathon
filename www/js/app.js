@@ -57,12 +57,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
     templateUrl: 'templates/finish.html'
   })
 
-  .state('shoping-list', {
-    url: '/shoping-list',
+  .state('shopping-list', {
+    url: '/shopping-list',
     abstract: false,
     cache: false,
-    templateUrl: 'templates/shoping-list.html',
-    controller: 'ShopingListCtrl'
+    templateUrl: 'templates/shopping-list.html',
+    controller: 'shoppingListCtrl'
   })
 
   .state('recommendation-list', {

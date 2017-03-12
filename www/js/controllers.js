@@ -153,7 +153,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('ShopingListCtrl', function($scope,$cordovaBarcodeScanner,ionicToast) {
+.controller('shoppingListCtrl', function($scope,$cordovaBarcodeScanner,ionicToast) {
   $scope.list = [{id: 1, name: 'Fantasy Fabric Dress', imgUrl: 'http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=86316898', price: 46, points: 2},
   {id: 2, name: 'Floral Embroidery Silk Top Blouse', imgUrl: 'http://thumbs.ebaystatic.com/images/g/5l0AAOSwRgJXhQCx/s-l225.jpg', price: 23},
   {id: 3, name: 'Ripped Trousers in Black', imgUrl: 'https://cdnd.lystit.com/photos/0ceb-2016/01/26/zara-black-ripped-trousers-product-1-609239874-normal.jpeg', price: 23},
@@ -164,7 +164,6 @@ angular.module('starter.controllers', [])
     ionicToast.show('NFC tag read correctly', 'middle', false, 1000);
     var indice =  Math.floor(Math.random() * ($scope.list.length - 0 + 1)) + 0;
     var json = JSON.stringify($scope.list[indice]);
-
     var copy = JSON.parse(json);
     copy.id = $scope.list.length + 1;
     copy.$$hashKey = undefined;
@@ -218,8 +217,8 @@ angular.module('starter.controllers', [])
 .controller('ShopSelectedCtrl', function($scope,$state,ionicToast,$stateParams) {
 
   $scope.shopName = $stateParams.name;
-  $scope.startShoping = function(){
-    ionicToast.show('Enjoy your shopping at ' + $stateParams.name, 'middle', false, 2500);    $state.go("shoping-list");
+  $scope.startshopping = function(){
+    ionicToast.show('Enjoy your shopping at ' + $stateParams.name, 'middle', false, 2500);    $state.go("recommendation-list");
   }
 
 })
@@ -231,7 +230,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('RecommendationListCtrl', function($scope) {
-  $scope.list = [{id: 1, name: 'Pleated Mini Skirt', imgUrl: 'http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=96161043', price: 46, hasSale: false, points: 0},
+  $scope.list = [{id: 1, name: 'Hat with Leather details', imgUrl: 'http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=96161043', price: 46, hasSale: false, points: 0},
                 {id: 1, name: 'Pleated Mini Skirt', imgUrl: 'http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=86317292', price: 46, hasSale: false, points: 3},
                 {id: 1, name: 'Scarve', imgUrl: 'http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=164909253', price: 12, salePrice: 8, hasSale: true, points: 0}];
 })
